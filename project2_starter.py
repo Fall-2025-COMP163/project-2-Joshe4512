@@ -1,7 +1,7 @@
 """
 COMP 163 - Project 2: Character Abilities Showcase
-Name: [Your Name Here]
-Date: [Date]
+Name: [Joshua Evans ]
+Date: [11/4/25]
 
 AI Usage: [Document any AI assistance used]
 Example: AI helped with inheritance structure and method overriding concepts
@@ -63,7 +63,17 @@ class Character:
         """Initialize basic character attributes"""
         # TODO: Set the character's name, health, strength, and magic
         # These should be stored as instance variables
+        self.name = name
+        self.health = health
+        self.strength = strength
+        self.magic = magic
         pass
+        # The class "character" is first made for us to be able to make characters. 
+        # We initialize the character attributes while also using self, so it can be called every time we make a new character 
+        # Self is also used with the parameters "name, health, strength, and magic," which we use to pass in when creating the object. 
+        # Self shows how an object refers to its own data and the instance to the object itself.
+        # Attributes are then made, and we use the argument and assign it to the variable "self.name" so it can be called later 
+        
         
     def attack(self, target):
         """
@@ -72,6 +82,13 @@ class Character:
         1. Calculate damage based on strength
         2. Apply damage to the target
         3. Print what happened
+        damage = self.strength 
+        target.take_damage(damage)
+        print(f"{self.name} attacked {target.name} for {damage} damage!")
+        # This is an instance method that defines a behavior for the character class
+        # It uses self as the parameter, so it can be the character attacking 
+        # Logically, this calculates damage based on strength by using "self.strength" and calls on "take_damage" to use on the target
+        # Finally, it prints out what happened 
         """
         # TODO: Implement basic attack
         # Damage should be based on self.strength
@@ -83,10 +100,17 @@ class Character:
         Reduces this character's health by the damage amount.
         Health should never go below 0.
         """
+        self.health -= damage
+
+        if self.health < 0:
+            self.health = 0
         # TODO: Implement taking damage
         # Reduce self.health by damage amount
         # Make sure health doesn't go below 0
         pass
+        # Another Instance method that uses the self parameter for the character to be attacked 
+        # the line self.health -= damage updates the characters health by taking the value of "self.health" and subtracting it from damage and giving a new health value.
+        # This also uses an if statement that tells us that the player's health should never be below zero 
         
     def display_stats(self):
         """
