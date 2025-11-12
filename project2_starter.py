@@ -138,8 +138,8 @@ class Player(Character):
         """
         super().__init__(name, health,strength, magic)
         self.character_class= character_class
-        self.level= 1
-        self.experience 0
+        self.level = 1
+        self.experience = 0
 
         
         # TODO: Call super().__init__() with the basic character info
