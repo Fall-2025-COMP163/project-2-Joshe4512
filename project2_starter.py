@@ -88,7 +88,7 @@ class Character:
         target.take_damage(damage)
         print(f"{self.name} attacked {target.name} for {damage} damage!")
        
-        
+        #EXPLANATIONS
         # This is an instance method that defines a behavior for the character class
         # It uses self as the parameter, so it can be the character attacking 
         # Logically, this calculates damage based on strength by using "self.strength" and calls on "take_damage" to use on the target
@@ -140,7 +140,7 @@ class Player(Character):
         Should call the parent constructor and add player-specific attributes.
         """
         super().__init__(name, health,strength, magic)
-        self.character_class= character_class
+        self.character_class = character_class
         self.level = 1
         self.experience = 0
 
