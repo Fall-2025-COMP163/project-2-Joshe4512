@@ -257,7 +257,7 @@ class Rogue(Player):
         Create a rogue with appropriate stats.
         Rogues should have: medium health, medium strength, medium magic
         """
-        super().__init__(name, "Rouge", health=90, strength=12, magic=10) 
+        super().__init__(name, "Rogue", health=90, strength=12, magic=10) 
         # TODO: Call super().__init__() with rogue-appropriate stats
         # Suggested stats: health=90, strength=12, magic=10
         pass
