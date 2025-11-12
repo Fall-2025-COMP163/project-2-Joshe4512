@@ -109,13 +109,15 @@ class Character:
         # Make sure health doesn't go below 0
         pass
         # Another Instance method that uses the self parameter for the character to be attacked 
-        # the line self.health -= damage updates the characters health by taking the value of "self.health" and subtracting it from damage and giving a new health value.
+        # the line self.health -= damage updates the character's health by taking the value of "self.health" and subtracting it from damage and giving a new health value.
         # This also uses an if statement that tells us that the player's health should never be below zero 
         
     def display_stats(self):
         """
         Prints the character's current stats in a nice format.
         """
+        print(f"{self.name}'s stats are!  Health: {self.health}  Strength: {self.strength}  Magic: {self.magic}")
+
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
         pass
@@ -131,6 +133,12 @@ class Player(Character):
         Initialize a player character.
         Should call the parent constructor and add player-specific attributes.
         """
+        super().__init__(name, health,strength, magic)
+        self.character_class= character_class
+        self.level= 1
+        self.experience= 0
+
+        
         # TODO: Call super().__init__() with the basic character info
         # TODO: Store the character_class (like "Warrior", "Mage", etc.)
         # TODO: Add any other player-specific attributes (level, experience, etc.)
@@ -140,6 +148,11 @@ class Player(Character):
         """
         Override the parent's display_stats to show additional player info.
         Should show everything the parent shows PLUS player-specific info.
+        super().display_stats() #calls the parent "display stats method" and overwrites it 
+        print(f"Class: {self.character_class}")
+        print(f"Level: {self.level}")
+        print(f"Experience: {self.experience}")
+        # Prints additional info
         """
         # TODO: Call the parent's display_stats method using super()
         # TODO: Then print additional player info like class and level
@@ -174,6 +187,7 @@ class Warrior(Player):
         """
         Special warrior ability - a powerful attack that does extra damage.
         """
+        
         # TODO: Implement power strike
         # Should do significantly more damage than regular attack
         pass
@@ -189,6 +203,11 @@ class Mage(Player):
         Create a mage with appropriate stats.
         Mages should have: low health, low strength, high magic
         """
+        if class = mage:
+            self.health = 80
+            self.strength = 8
+            self.magic = 20
+            
         # TODO: Call super().__init__() with mage-appropriate stats
         # Suggested stats: health=80, strength=8, magic=20
         pass
