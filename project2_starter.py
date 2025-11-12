@@ -52,7 +52,7 @@ class SimpleBattle:
 # ============================================================================
 # YOUR CLASSES TO IMPLEMENT (6 CLASSES TOTAL)
 # ============================================================================
-
+import random 
 class Character:
     """
     Base class for all characters.
