@@ -3,7 +3,7 @@ COMP 163 - Project 2: Character Abilities Showcase
 Name: [Joshua Evans ]
 Date: [11/4/25]
 
-AI Usage: [Document any AI assistance used]
+AI Usage: [ChatGPT and Google Gemini helped explain code to further knowledge of inheritance and classes, and the super function. AI also helped improve code for better syntax and efficiency]
 Example: AI helped with inheritance structure and method overriding concepts
 """
 
@@ -82,14 +82,17 @@ class Character:
         1. Calculate damage based on strength
         2. Apply damage to the target
         3. Print what happened
+       
+        """
         damage = self.strength 
         target.take_damage(damage)
         print(f"{self.name} attacked {target.name} for {damage} damage!")
+       
+        
         # This is an instance method that defines a behavior for the character class
         # It uses self as the parameter, so it can be the character attacking 
         # Logically, this calculates damage based on strength by using "self.strength" and calls on "take_damage" to use on the target
         # Finally, it prints out what happened 
-        """
         # TODO: Implement basic attack
         # Damage should be based on self.strength
         # Use target.take_damage(damage) to apply damage
@@ -136,7 +139,7 @@ class Player(Character):
         super().__init__(name, health,strength, magic)
         self.character_class= character_class
         self.level= 1
-        self.experience= 0
+        self.experience 0
 
         
         # TODO: Call super().__init__() with the basic character info
@@ -148,14 +151,15 @@ class Player(Character):
         """
         Override the parent's display_stats to show additional player info.
         Should show everything the parent shows PLUS player-specific info.
-        super().display_stats() #calls the parent "display stats method" and overwrites it 
-        print(f"Class: {self.character_class}")
-        print(f"Level: {self.level}")
-        print(f"Experience: {self.experience}")
+       
         # Prints additional info
         """
         # TODO: Call the parent's display_stats method using super()
         # TODO: Then print additional player info like class and level
+        super().display_stats() #calls the parent "display stats method" and overwrites it 
+        print(f"Class: {self.character_class}")
+        print(f"Level: {self.level}")
+        print(f"Experience: {self.experience}")
         pass
 
 class Warrior(Player):
@@ -168,15 +172,21 @@ class Warrior(Player):
         """
         Create a warrior with appropriate stats.
         Warriors should have: high health, high strength, low magic
+       
+        
+        
         """
         # TODO: Call super().__init__() with warrior-appropriate stats
         # Suggested stats: health=120, strength=15, magic=5
+        super().__init__(name, Warrior, health=120, strength= 15, magic=5)
+        
         pass
         
     def attack(self, target):
         """
         Override the basic attack to make it warrior-specific.
         Warriors should do extra physical damage.
+        
         """
         # TODO: Implement warrior attack
         # Should do more damage than basic attack
@@ -203,11 +213,8 @@ class Mage(Player):
         Create a mage with appropriate stats.
         Mages should have: low health, low strength, high magic
         """
-        if class = mage:
-            self.health = 80
-            self.strength = 8
-            self.magic = 20
-            
+        
+        super().__init__(name, mage, health=80, strength=8, magic=20)    
         # TODO: Call super().__init__() with mage-appropriate stats
         # Suggested stats: health=80, strength=8, magic=20
         pass
