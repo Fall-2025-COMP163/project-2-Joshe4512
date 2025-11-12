@@ -119,7 +119,10 @@ class Character:
         """
         Prints the character's current stats in a nice format.
         """
-        print(f"{self.name}'s stats are!  Health: {self.health}  Strength: {self.strength}  Magic: {self.magic}")
+        print(f"--- {self.name}'s Stats ---")
+        print(f"  Health: {self.health}")
+        print(f"  Strength: {self.strength}")
+        print(f"  Magic: {self.magic}")
 
         # TODO: Print character's name, health, strength, and magic
         # Make it look nice with formatting
@@ -178,7 +181,7 @@ class Warrior(Player):
         """
         # TODO: Call super().__init__() with warrior-appropriate stats
         # Suggested stats: health=120, strength=15, magic=5
-        super().__init__(name, Warrior, health=120, strength= 15, magic=5)
+        super().__init__(name, "Warrior", health=120, strength= 15, magic=5)
         
         pass
         
@@ -189,7 +192,7 @@ class Warrior(Player):
         
         """
         damage = self.strength + 5
-        target.health-= damage
+        target.take_damage(damage)
         # TODO: Implement warrior attack
         # Should do more damage than basic attack
         # Maybe strength + 5 bonus damage?
@@ -200,7 +203,7 @@ class Warrior(Player):
         Special warrior ability - a powerful attack that does extra damage.
         """
         damage = self.strength + 10
-        target.health-= damage
+        target.take_damage(damage)
         # TODO: Implement power strike
         # Should do significantly more damage than regular attack
         pass
@@ -217,7 +220,7 @@ class Mage(Player):
         Mages should have: low health, low strength, high magic
         """
         
-        super().__init__(name, Mage, health=80, strength=8, magic=20)    
+        super().__init__(name, "Mage", health=80, strength=8, magic=20)    
         # TODO: Call super().__init__() with mage-appropriate stats
         # Suggested stats: health=80, strength=8, magic=20
         pass
@@ -227,8 +230,8 @@ class Mage(Player):
         Override the basic attack to make it magic-based.
         Mages should use magic for damage instead of strength.
         """
-        damage= self.magic 
-        target.health-= damage 
+        damage = self.magic 
+        target.take_damage(damage)
         # TODO: Implement mage attack
         # Should use self.magic for damage calculation instead of strength
         pass
@@ -238,7 +241,7 @@ class Mage(Player):
         Special mage ability - a powerful magical attack.
         """
         damage = self.magic + 10 
-        target.health-= damage
+        target.take_damage(damage)
         # TODO: Implement fireball spell
         # Should do magic-based damage with bonus
         pass
@@ -254,7 +257,7 @@ class Rogue(Player):
         Create a rogue with appropriate stats.
         Rogues should have: medium health, medium strength, medium magic
         """
-        super().__init__(name, Rouge, health=90, strength=12, magic=10) 
+        super().__init__(name, "Rouge", health=90, strength=12, magic=10) 
         # TODO: Call super().__init__() with rogue-appropriate stats
         # Suggested stats: health=90, strength=12, magic=10
         pass
@@ -269,7 +272,7 @@ class Rogue(Player):
         if random.randint(1,10) <=3:
             damage= self.strength*2
 
-        target.health -=  damage
+        target.take_damage(damage)
             
         # TODO: Implement rogue attack
         # Could add a chance for critical hit (double damage)
