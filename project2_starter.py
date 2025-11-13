@@ -300,7 +300,7 @@ class Weapon:
         Create a weapon with a name and damage bonus.
         """
         self.name = name
-        self.damage_bounus = damage_bonus
+        self.damage_bonus = damage_bonus
         
         # TODO: Store weapon name and damage bonus
         pass
