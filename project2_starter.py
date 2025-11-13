@@ -284,7 +284,7 @@ class Rogue(Player):
         Special rogue ability - guaranteed critical hit.
         """
         damage = self.strength*2
-        target.health -= damage
+        target.take_damage(damage)        
         # TODO: Implement sneak attack
         # Should always do critical damage
         pass
@@ -299,9 +299,8 @@ class Weapon:
         """
         Create a weapon with a name and damage bonus.
         """
-        self.weapon= weapon
-        self.weapon_name= Sword
-        self.weapon_damge= damage*1.15
+        self.name = name
+        self.damage_bounus = damage_bonus
         
         # TODO: Store weapon name and damage bonus
         pass
@@ -310,8 +309,8 @@ class Weapon:
         """
         Display information about this weapon.
         """
-        Print(f"Weapon Name: {self.weapon}")
-        print(f"Damage Bonus:{self.weapon_damage}")
+        print(f"Weapon Name: {self.name}")
+        print(f"Damage Bonus:{self.damage_bonus}")
         # TODO: Print weapon name and damage bonus
         pass
 
