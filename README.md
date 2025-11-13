@@ -1,147 +1,47 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mMxhKicI)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=21584477&assignment_repo_type=AssignmentRepo)
-# COMP 163 - Project 2: Character Abilities Showcase
+Character Abilities Showcase
+Course: COMP 163 - Project 2 Author: Joshua Evans Date: November 4, 2025
 
-## 🎯 Project Overview
+Project Description
+This project implements a class-based battle system in Python to demonstrate Object-Oriented Programming (OOP) concepts. It features a hierarchy of character classes (Warrior, Mage, Rogue) that inherit from a base Player class. The program simulates combat interactions, special abilities, and weapon composition using a text-based interface.
 
-Build a simple character system that demonstrates mastery of object-oriented programming fundamentals: inheritance, method overriding, polymorphism, and composition. This project focuses on core OOP concepts without the complexity of a full game system.
+How to Run
+Prerequisites: Ensure you have Python 3.x installed.
 
-## 📋 Getting Started
+File Setup: Make sure the script file (e.g., main.py) is in your current directory.
 
-1. **Complete your implementation** in `project2_starter.py`
-2. **Test your code** by running: `python project2_starter.py`
-3. **Run automated tests** with: `python -m pytest tests/ -v`
-4. **Commit and push** to see GitHub test results
+Execution: Open your terminal or command prompt and run:
 
-## 🏗️ What You're Building
+Bash
 
-### **Class Structure (6 Classes Total)**
+python main.py
+Expected Output: The console will display:
 
-```
-Character (base class)
-    ↓
-Player (inherits from Character)  
-    ↓
-Warrior, Mage, Rogue (inherit from Player)
+Character statistics.
 
-Weapon (composition - separate class)
-```
+A demonstration of Polymorphism (different attack behaviors).
 
-### **Required Stats for Each Class:**
+A showcase of Special Abilities (Power Strike, Fireball, Sneak Attack).
 
-| Class   | Health | Strength | Magic | Special Ability |
-|---------|--------|----------|-------|-----------------|
-| Warrior | 120    | 15       | 5     | Power Strike    |
-| Mage    | 80     | 8        | 20    | Fireball        |
-| Rogue   | 90     | 12       | 10    | Sneak Attack    |
+Weapon details (Composition).
 
-## 🎮 Core Functionality
+A full simulated battle between the Warrior and Mage.
 
-### **All Characters Must Have:**
-- `attack(target)` - Basic attack method
-- `take_damage(damage)` - Reduce health
-- `display_stats()` - Print character information
+Bonus Creative Features
+Rogue Critical Hit Logic: Implemented a randomized critical hit system for the Rogue class using random.randint(1, 10). There is a 30% chance for the Rogue to deal double damage on a standard attack, adding an element of unpredictability to the combat.
 
-### **Players Additionally Have:**
-- `character_class` attribute (like "Warrior", "Mage")
-- `level` and `experience` attributes
-- Enhanced `display_stats()` that shows player info
+Weapon Composition: Integrated a standalone Weapon class to demonstrate "Has-A" relationships (Composition) alongside the standard inheritance models.
 
-### **Special Abilities (Each Class):**
-- **Warrior**: `power_strike(target)` - High damage attack
-- **Mage**: `fireball(target)` - Magic damage attack
-- **Rogue**: `sneak_attack(target)` - Critical hit attack
+Console Polish: Added clear separators (===, ---) and descriptive print statements to the battle logs to make the combat flow easier to read and understand for the user.
 
-### **Weapons (Composition):**
-- `Weapon(name, damage_bonus)` - Characters can HAVE weapons
-- `display_info()` - Show weapon information
+AI Usage
+Tools Used: ChatGPT and Google Gemini.
 
-## ✅ Testing Your Code
+Usage Description:
 
-### **Local Testing**
-```bash
-# Run all tests
-python -m pytest tests/ -v
+Concept Explanation: AI was used to clarify complex OOP concepts, specifically how inheritance hierarchies work and the proper syntax for using super() to initialize parent attributes.
 
-# Run specific test categories
-python -m pytest tests/test_inheritance.py -v
-python -m pytest tests/test_method_overriding.py -v
-python -m pytest tests/test_special_abilities.py -v
+Code Refinement: AI assisted in refining the code syntax for efficiency and ensuring that the SimpleBattle class interacted correctly with the custom character classes.
 
-# Test your main program
-python project2_starter.py
-```
+Debugging: AI helped identify and fix errors related to missing attributes (e.g., damage_bonus spelling errors) and missing print statements in the attack methods.
 
-### **GitHub Testing**
-
-After pushing your code, check the **Actions** tab to see automated test results:
-
-- ✅ **Inheritance Tests** (20 points) - Class structure and inheritance chain
-- ✅ **Method Overriding Tests** (20 points) - Polymorphism and customized methods
-- ✅ **Special Abilities Tests** (15 points) - Character abilities and composition
-
-## 🎮 Example Usage
-
-Your program should work like this:
-
-```python
-# Create characters (inheritance)
-warrior = Warrior("Marcus")
-mage = Mage("Aria")  
-rogue = Rogue("Shadow")
-
-# Polymorphism - same method, different behavior
-for character in [warrior, mage, rogue]:
-    character.attack(target)  # Each attacks differently
-
-# Special abilities
-warrior.power_strike(enemy)
-mage.fireball(enemy)
-rogue.sneak_attack(enemy)
-
-# Composition
-sword = Weapon("Iron Sword", 15)
-sword.display_info()
-
-# Test battle system (provided for you)
-battle = SimpleBattle(warrior, mage)
-battle.fight()
-```
-
-## 🎲 SimpleBattle System (Provided)
-
-You have a **SimpleBattle** class already written that you can use to test your characters:
-
-```python
-battle = SimpleBattle(character1, character2)
-battle.fight()  # Simulates a simple battle
-```
-
-**⚠️ DO NOT MODIFY the SimpleBattle class** - it's provided for testing your implementations.
-
-## ⚠️ Important Notes
-
-### **Protected Files**
-- **DO NOT MODIFY** files in the `tests/` directory
-- **DO NOT MODIFY** the `SimpleBattle` class
-- Modifying protected files will result in automatic academic integrity violation
-
-### **AI Usage Policy**
-- ✅ **Allowed**: AI assistance for implementation, debugging, learning
-- 📝 **Required**: Document AI usage in code comments
-- 🎯 **Must be able to explain**: Every class and method during interview
-
-## 🏆 Grading
-
-- **Inheritance Tests (20%)**: Proper 3-level inheritance chain
-- **Method Overriding (20%)**: Polymorphism and customized behaviors
-- **Special Abilities (15%)**: Character-specific methods and composition
-- **Code Quality (5%)**: Professional comments and documentation
-- **Interview (40%)**: Code explanation and live coding
-
-## 🎨 Bonus Creative Elements
-
-Feel free to add your own creative touches for bonus points:
-- Additional character classes beyond the three required
-- More weapon types with different properties
-- Enhanced special abilities with unique effects
+AI Also helped with ReadMe file.
